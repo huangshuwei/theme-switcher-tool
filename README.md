@@ -64,9 +64,9 @@ const themeSwitcherTool = window.ThemeSwitcherTool({
                 { themeName: "theme-red", themePath: "./themes/theme-red.css" }
             ],
     // Your actual style id
-    styleLinkId: "theme_switcher_cli_style_id",
+    styleLinkId: "theme_creator_cli_style_id",
     useStorage: true,
-    storageKey: "theme_switcher_cli_theme"
+    storageKey: "theme_switcher_tool_theme"
 });
 
 // switch Theme Loding
