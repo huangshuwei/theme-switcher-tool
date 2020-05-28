@@ -4,7 +4,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/theme-switcher-tool.svg?style=flat)](https://npmjs.org/package/theme-switcher-tool)
 
 theme switcher tool.
-here is a [example](http://doc.huangsw.com/theme-switcher-cli-demo/) with [theme-creator-cli](https://github.com/huangshuwei/theme-creator-cli)
+here is an [example](http://doc.huangsw.com/theme-switcher-cli-demo/) with [theme-creator-cli](https://github.com/huangshuwei/theme-creator-cli)
 
 ### Install & Usage
 
