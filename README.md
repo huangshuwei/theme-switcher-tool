@@ -93,6 +93,12 @@ themeSwitcherTool.switcher({
 ```
 
 ### API
+| 参数      | 说明                              | 类型      | 可选值            | 默认值  | 参考值  |
+|---------- |--------------------------------- |---------- |----------------  |-------- |-------- |
+| themeList | 需要切换的主题列表 | Array<Object> | — | — | `[{"themeName":"theme-black","themePath":"./themes/theme-black.css"},{"themeName":"theme-blue","themePath":"./themes/theme-blue.css"}]` |
+| styleLinkId | html`link`标签id | String | — | — | theme_creator_cli_style_id |
+| useStorage | 是否使用 `localStorage`记录当前主题名称 | Bool | — | false | - |
+| storageKey | `localStorage` key 值 | String | — | false | - |
 
 
 ## License
