@@ -6,54 +6,21 @@
 theme switcher tool.
 here is an [example](http://doc.huangsw.com/theme-creator-cli-demo/) with [theme-creator-cli](https://github.com/huangshuwei/theme-creator-cli)
 
-### Install & Usage
+### Install
 
 **Browser Environment**
 
 ```
 <script src="//unpkg.com/theme-switcher-tool"></script>
-<script>
-const themeSwitcherTool = window.ThemeSwitcherTool({
-    // Your theme list
-    themeList: [
-                { themeName: "theme-black", themePath: "./themes/theme-black.css" },
-                { themeName: "theme-blue", themePath: "./themes/theme-blue.css" },
-                { themeName: "theme-orange", themePath: "./themes/theme-orange.css" },
-                { themeName: "theme-red", themePath: "./themes/theme-red.css" }
-            ],
-    // Your actual style id
-    styleLinkId: "theme_creator_cli_style_id",
-    useStorage: true,
-    storageKey: "theme_switcher_tool_theme"
-});
-
-// switch Theme Loding
-function switchThemeLoding(){
-
-    console.log("switch theme loding...")
-}
-
-// switch Theme Completed
-function switchThemeCompleted(){
-
-    console.log("switch theme completed.")
-}
-
-const historyTheme = themeSwitcherTool.getCurrentTheme() || "theme-black";
-
-// switcher theme
-themeSwitcherTool.switcher({
-    themeName: historyTheme,
-    loadingFn: switchThemeLoding,
-    completedFn: switchThemeCompleted
-});
-
-</script>
 ```
 
 **ES Module Environment**
 ```
 import themeSwitcherTool from 'theme-switcher-tool';
+```
+### Usage
+
+```
 
 const themeSwitcherTool = window.ThemeSwitcherTool({
     // Your theme list
@@ -69,26 +36,18 @@ const themeSwitcherTool = window.ThemeSwitcherTool({
     storageKey: "theme_switcher_tool_theme"
 });
 
-// switch Theme Loding
-function switchThemeLoding(){
-
-    console.log("switch theme loding...")
-}
-
-// switch Theme Completed
-function switchThemeCompleted(){
-
-    console.log("switch theme completed.")
-}
-
 const historyTheme = themeSwitcherTool.getCurrentTheme() || "theme-black";
 
-// switcher theme
+/*
+switcher theme
+1、you can show your loading message
+*/ 
 themeSwitcherTool.switcher({
-    themeName: historyTheme,
-    loadingFn: switchThemeLoding,
-    completedFn: switchThemeCompleted
-});
+    themeName: historyTheme
+}).then(()=>{
+
+    // somthing to do. such as close your loading message
+})
 
 ```
 
