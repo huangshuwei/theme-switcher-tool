@@ -16,13 +16,13 @@ here is an [example](http://doc.huangsw.com/theme-creator-cli-demo/) with [theme
 
 **ES Module Environment**
 ```
-import themeSwitcherTool from 'theme-switcher-tool';
+import ThemeSwitcherTool from 'theme-switcher-tool';
 ```
 ### Usage
 
 ```
 
-const themeSwitcherTool = window.ThemeSwitcherTool({
+const themeSwitcherTool = ThemeSwitcherTool({
     // Your theme list
     themeList: [
                 { themeName: "theme-black", themePath: "./themes/theme-black.css" },
