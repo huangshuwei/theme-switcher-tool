@@ -12,12 +12,10 @@ interface Config {
 
 interface SwitchConfig {
     themeName: string;
-    loadingFn?: () => void;
-    completedFn?: () => void;
 }
 
 interface Result {
-    switcher: (config: SwitchConfig) => void;
+    switcher: (config: SwitchConfig) => Promise<void>;
     getCurrentTheme: () => string;
 }
 
@@ -43,7 +41,7 @@ const themeSwitcherTool = (config: Config): Result => {
         return localStorage.getItem(storageKey);
     };
 
-    const switcher: (config: SwitchConfig) => void = switchConfig => {
+    const switcher: (config: SwitchConfig) => Promise<void> = switchConfig => {
         const currentTheme = themeList.find(
             (x: ThemeItem) => x.themeName === switchConfig.themeName
         );
@@ -60,8 +58,6 @@ const themeSwitcherTool = (config: Config): Result => {
                 console.error(`link id was not found:${styleLinkId}`);
             }
 
-            switchConfig.loadingFn && switchConfig.loadingFn();
-
             let creatLink = document.createElement("link");
             creatLink.type = "text/css";
             creatLink.id = styleLinkId;
@@ -70,18 +66,24 @@ const themeSwitcherTool = (config: Config): Result => {
             document.getElementsByTagName("head")[0].appendChild(creatLink);
 
             // Remove the old theme after the new theme is loaded to prevent layout jitter
-            creatLink.onload = () => {
-                oldLinkNode &&
-                    setTimeout(() => {
-                        oldLinkNode.parentNode.removeChild(oldLinkNode);
-                        useStorage &&
-                            localStorage.setItem(
-                                storageKey,
-                                currentTheme.themeName
-                            );
-                        switchConfig.completedFn && switchConfig.completedFn();
-                    });
-            };
+            return new Promise((resolve, reject) => {
+                creatLink.onload = () => {
+                    oldLinkNode &&
+                        setTimeout(() => {
+                            oldLinkNode.parentNode.removeChild(oldLinkNode);
+                            useStorage &&
+                                localStorage.setItem(
+                                    storageKey,
+                                    currentTheme.themeName
+                                );
+                            resolve();
+                        });
+                };
+
+                creatLink.onerror = () => {
+                    reject();
+                };
+            });
         }
     };
 
