@@ -55,16 +55,16 @@ themeSwitcherTool.switcher({
 **config**
 | 参数      | 说明                              | 类型      | 可选值            | 默认值  | 参考值  |
 |---------- |--------------------------------- |---------- |----------------  |-------- |-------- |
-| themeList | 需要切换的主题列表 | Array<Object> | — | — | `[{"themeName":"theme-black","themePath":"./themes/theme-black.css"},{"themeName":"theme-blue","themePath":"./themes/theme-blue.css"}]` |
-| styleLinkId | html`link`标签id | String | — | — | theme_creator_cli_style_id |
-| useStorage | 是否使用 `localStorage`记录当前主题名称 | Bool | — | false | —  |
-| storageKey | `localStorage` key 值 | String | — | —  | —  |
+| `themeList` | 需要切换的主题列表 | `{Array<Object>}` | — | — | `[{"themeName":"theme-black","themePath":"./themes/theme-black.css"},{"themeName":"theme-blue","themePath":"./themes/theme-blue.css"}]` |
+| `styleLinkId` | html`link`标签id | `{String}` | — | — | `theme_creator_cli_style_id` |
+| `useStorage` | 是否使用 `localStorage`记录当前主题名称 | `{Bool}` | — | `false` | —  |
+| `storageKey` | `localStorage` key 值 | `{String}` | — | —  | —  |
 
 **methods**
 | 名称      | 说明                              | 参数      | 返回值类型            | 
 |--------- |--------------------------------- |---------- |----------------  |
-| getCurrentTheme | 返回当前主题名称（当设置了 `localStorage` 存储） | —  | String|
-| switcher | 切换主题 | themeName | String | — |
+| `getCurrentTheme` | 返回当前主题名称（当设置了 `localStorage` 存储） | —  | `{String}`|
+| `switcher` | 切换主题 | `themeName` | `{String}` | — |
 
 ## License
-http://www.opensource.org/licenses/mit-license.php
+This project is licensed under [MIT](http://www.opensource.org/licenses/mit-license.php)
