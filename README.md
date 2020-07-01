@@ -4,7 +4,10 @@
 [![NPM downloads](http://img.shields.io/npm/dm/theme-switcher-tool.svg?style=flat)](https://npmjs.org/package/theme-switcher-tool)
 
 theme switcher tool.
-here is an [example](http://doc.huangsw.com/theme-creator-cli-demo/) with [theme-creator-cli](https://github.com/huangshuwei/theme-creator-cli)
+these are examples width [theme-generator-webpack-plugin](https://github.com/huangshuwei/theme-generator-webpack-plugin)
+- [base on react antd demo](http://doc.huangsw.com/theme-generator-webpack-plugin/react-antd/)
+- [base on vue element demo](http://doc.huangsw.com/theme-generator-webpack-plugin/vue-element/)
+
 
 ### Install
 
