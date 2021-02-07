@@ -19,12 +19,14 @@ interface Result {
     getCurrentTheme: () => string;
 }
 
+const PACKAGE_NAME = "theme-switcher-tool";
+
 const themeSwitcherTool = (config: Config): Result => {
     const {
         themeList = config.themeList,
         styleLinkId = "theme_switcher_cli_style_id",
         useStorage = false,
-        storageKey = "theme_switcher_cli_theme"
+        storageKey = "theme_switcher_cli_theme",
     } = config || {};
 
     if (!(Array.isArray(themeList) && themeList.length > 0)) {
@@ -41,7 +43,9 @@ const themeSwitcherTool = (config: Config): Result => {
         return localStorage.getItem(storageKey);
     };
 
-    const switcher: (config: SwitchConfig) => Promise<void> = switchConfig => {
+    const switcher: (config: SwitchConfig) => Promise<void> = (
+        switchConfig
+    ) => {
         const currentTheme = themeList.find(
             (x: ThemeItem) => x.themeName === switchConfig.themeName
         );
@@ -55,7 +59,9 @@ const themeSwitcherTool = (config: Config): Result => {
         if (currentTheme) {
             let oldLinkNode = document.getElementById(styleLinkId);
             if (!oldLinkNode) {
-                console.error(`link id was not found:${styleLinkId}`);
+                console.warn(
+                    `link id was not found:${styleLinkId},${PACKAGE_NAME} will create new stylesheet. `
+                );
             }
 
             let creatLink = document.createElement("link");
@@ -89,7 +95,7 @@ const themeSwitcherTool = (config: Config): Result => {
 
     return {
         switcher,
-        getCurrentTheme
+        getCurrentTheme,
     };
 };
 

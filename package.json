@@ -1,6 +1,6 @@
 {
     "name": "theme-switcher-tool",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "theme switcher tool",
     "unpkg": "dist/index.min.js",
     "main": "dist/index.min.js",
@@ -11,6 +11,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
     },
     "keywords": [
         "theme",
