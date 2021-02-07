@@ -74,16 +74,17 @@ const themeSwitcherTool = (config: Config): Result => {
             // Remove the old theme after the new theme is loaded to prevent layout jitter
             return new Promise((resolve, reject) => {
                 creatLink.onload = () => {
-                    oldLinkNode &&
-                        setTimeout(() => {
+                    setTimeout(() => {
+                        if (oldLinkNode) {
                             oldLinkNode.parentNode.removeChild(oldLinkNode);
-                            useStorage &&
-                                localStorage.setItem(
-                                    storageKey,
-                                    currentTheme.themeName
-                                );
-                            resolve();
-                        });
+                        }
+                        useStorage &&
+                            localStorage.setItem(
+                                storageKey,
+                                currentTheme.themeName
+                            );
+                        resolve();
+                    });
                 };
 
                 creatLink.onerror = () => {
