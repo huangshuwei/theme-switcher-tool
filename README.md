@@ -18,10 +18,22 @@ these are examples with [theme-generator-webpack-plugin](https://github.com/huan
 ```
 
 **ES Module Environment**
+
+```
+yarn add theme-switcher-tool
+```
+
+or
+
+```
+npm install theme-switcher-tool
+```
+
+### Usage
+
 ```
 import ThemeSwitcherTool from 'theme-switcher-tool';
 ```
-### Usage
 
 ```
 
